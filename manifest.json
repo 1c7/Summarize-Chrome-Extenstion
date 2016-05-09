@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+
+  "name": "Summarize",
+  "description": "Summarize Youtube Video",
+  "version": "1.0",
+
+  "browser_action": {
+          "default_icon": {
+            "16": "16.png",
+            "19": "19-white.png",
+            "38": "38-light.png",
+            "48": "48-light.png",
+            "128": "128.png"
+          },
+    "default_popup": "popup.html"
+  },
+
+  //http://open.chrome.360.cn/extension_dev/content_scripts.html
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch?v=*"],
+      // "css": ["mystyles.css"],
+      "js": ["jquery-2.2.3.min.js", "Summarize.js"]
+    }
+  ],
+
+  //http://open.chrome.360.cn/extension_dev/background_pages.html
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "icons": {
+    "16": "16.png",
+    "48": "48-light.png",
+    "128": "128.png"
+  },
+
+  // permissions
+  // http://open.chrome.360.cn/extension_dev/manifest.html#permissions_
+  "permissions": [
+    "tabs",
+    "https://www.youtube.com/watch?v=*"
+  ],
+
+    "web_accessible_resources": [
+    "template.html"
+  ]
+}
