@@ -16,18 +16,18 @@
     "default_popup": "popup.html"
   },
 
-  //http://open.chrome.360.cn/extension_dev/content_scripts.html
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/watch?v=*"],
-      // "css": ["mystyles.css"],
-      "js": ["jquery-2.2.3.min.js", "Summarize.js"]
+      "js": ["jquery-2.2.3.min.js", "content_script.js"],
+      "all_frames": true,
+      "run_at": "document_end"
     }
   ],
 
   //http://open.chrome.360.cn/extension_dev/background_pages.html
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["jquery-2.2.3.min.js", "background.js"]
   },
 
   "icons": {
@@ -43,7 +43,10 @@
     "https://www.youtube.com/watch?v=*"
   ],
 
-    "web_accessible_resources": [
-    "template.html"
-  ]
+  "web_accessible_resources": [
+    "template.html",
+    "128.png"
+  ],
+
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
